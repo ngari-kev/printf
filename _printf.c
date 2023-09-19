@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>  /* Include the necessary header for va_list and related functions */
-
 /**
  * _printf - produces output according to a format.
  * @format: array of specifiers
@@ -11,6 +9,7 @@ int _printf(const char *format, ...)
         int xters = 0;  /* Number of characters printed */
         va_list ap;     /* Initialize the va_list for variable arguments */
         int len = 0; /*move var declaration to the top*/
+        char c, *str;;
         if (format == NULL)
                 return (-1);
 
@@ -33,13 +32,13 @@ int _printf(const char *format, ...)
                         }
                         else if (*format == 'c')
                         {
-                                char c = va_arg(ap, int);  /* Correctly retrieve char */
+                                c = va_arg(ap, int);  /* Correctly retrieve char */
                                 write(1, &c, 1);
                                 xters++;
                         }
                         else if (*format == 's')
                         {
-                                char *str = va_arg(ap, char *);
+                                *str = va_arg(ap, char *);
                                 if (str == NULL)
                                         return (-1);
                                 /* int len = 0;*/
