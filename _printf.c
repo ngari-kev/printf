@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 			write(1, format, 1);
 			xters++;
 		}
-		else
+		else if (*format == '%')
 		{
 			format++;/*if *format == %, we move to the next item*/
 			if (*format == '%')/*the case of double %*/
